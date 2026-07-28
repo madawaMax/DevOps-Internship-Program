@@ -45,3 +45,13 @@ sudo apt install -y git curl wget vim tree zip unzip htop net-tools
 | `groups`      | Show group membership             |
 | `usermod -aG` | Add user to a group               |
 
+
+
+| Command    | Purpose                        |
+| ---------- | ------------------------------ |
+| `chmod`    | Change file permissions        |
+| `chown`    | Change file owner              |
+| `ls -l`    | Show detailed file permissions |
+| `chmod +x` | Make a file executable         |
+
+
