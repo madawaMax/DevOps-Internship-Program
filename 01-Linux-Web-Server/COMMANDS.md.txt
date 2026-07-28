@@ -21,3 +21,17 @@ sudo apt install -y git curl wget vim tree zip unzip htop net-tools
 | `ls -l`  | Long listing           |
 | `ls -la` | Show hidden files      |
 | `cd`     | Change directory       |
+
+
+
+
+| Command | Meaning                              |
+| ------- | ------------------------------------ |
+| `mkdir` | Make Directory                       |
+| `touch` | Create empty file / update timestamp |
+| `cp`    | Copy                                 |
+| `mv`    | Move / Rename                        |
+| `rm`    | Remove                               |
+| `cat`   | Display file content                 |
+| `tree`  | Show directory structure             |
+
