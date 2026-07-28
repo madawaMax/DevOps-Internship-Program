@@ -11,3 +11,13 @@ sudo apt upgrade -y
 ## Install Essential Packages
 
 sudo apt install -y git curl wget vim tree zip unzip htop net-tools
+
+
+
+| Command  | Purpose                |
+| -------- | ---------------------- |
+| `pwd`    | Show current directory |
+| `ls`     | List files             |
+| `ls -l`  | Long listing           |
+| `ls -la` | Show hidden files      |
+| `cd`     | Change directory       |
