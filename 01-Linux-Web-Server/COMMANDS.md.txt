@@ -1,0 +1,13 @@
+# Commands Used
+
+## Update Packages
+
+sudo apt update
+
+## Upgrade Packages
+
+sudo apt upgrade -y
+
+## Install Essential Packages
+
+sudo apt install -y git curl wget vim tree zip unzip htop net-tools
