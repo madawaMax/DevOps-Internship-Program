@@ -35,3 +35,13 @@ sudo apt install -y git curl wget vim tree zip unzip htop net-tools
 | `cat`   | Display file content                 |
 | `tree`  | Show directory structure             |
 
+
+
+| Command       | Purpose                           |
+| ------------- | --------------------------------- |
+| `whoami`      | Show current user                 |
+| `id`          | Show user ID, group ID and groups |
+| `adduser`     | Create a new user                 |
+| `groups`      | Show group membership             |
+| `usermod -aG` | Add user to a group               |
+
