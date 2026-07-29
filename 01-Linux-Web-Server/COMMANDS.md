@@ -65,4 +65,15 @@ sudo apt install -y git curl wget vim tree zip unzip htop net-tools
 | `ssh user@ip`             | Connect to a remote Linux server |
 
 
+| Command               | Purpose               |
+| --------------------- | --------------------- |
+| `ufw status`          | Check firewall status |
+| `ufw allow ssh`       | Allow SSH connections |
+| `ufw allow 80/tcp`    | Allow HTTP traffic    |
+| `ufw allow 443/tcp`   | Allow HTTPS traffic   |
+| `ufw enable`          | Enable firewall       |
+| `ufw status numbered` | Show firewall rules   |
+
+
+
 

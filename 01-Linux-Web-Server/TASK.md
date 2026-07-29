@@ -32,3 +32,22 @@ Configure and verify SSH access to the Ubuntu Server.
 ## Result
 
 SSH remote access configured successfully.
+
+# DEVOPS-007 - Configure UFW Firewall
+
+## Objective
+
+Configure the Ubuntu firewall to allow only required services.
+
+## Tasks Completed
+
+- Verified UFW installation
+- Allowed SSH (Port 22)
+- Enabled firewall
+- Allowed HTTP (Port 80)
+- Allowed HTTPS (Port 443)
+- Verified firewall rules
+
+## Result
+
+The server firewall is configured securely with only required ports open.
