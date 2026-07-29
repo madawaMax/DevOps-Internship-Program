@@ -1,38 +1,101 @@
-# DEVOPS-001 - Linux Production Server Setup
+# Project 1 - Linux Web Server
 
-## Objective
+## Overview
 
-Prepare an Ubuntu Server for production use.
+This project is part of my DevOps Internship Program. The objective of this project is to learn Linux server administration, system management, networking, security, and web server deployment using Ubuntu Server.
 
-## Environment
+The project covers the complete process from installing Ubuntu Server to deploying a custom website using Nginx.
 
-- OS : Ubuntu 24.04.4 LTS
-- Virtualization : Oracle VirtualBox
-- Host OS : Windows 11
+---
 
-## Sprint
+# Project Objectives
 
-Sprint 1
+- Install Ubuntu Server
+- Learn Linux Commands
+- Manage Users and Groups
+- Configure SSH
+- Configure Firewall (UFW)
+- Understand Linux File Permissions
+- Install and Configure Nginx
+- Deploy a Static Website
 
-## Status
+---
 
-In Progress
+# Technologies Used
 
+- Ubuntu Server 24.04 LTS
+- VirtualBox
+- Linux Terminal
+- OpenSSH
+- UFW Firewall
+- Nginx Web Server
+- Git
+- GitHub
 
-## SSH Configuration
+---
 
-### Objective
+# Project Structure
 
-Configure secure remote access to the Ubuntu Server.
+```
+01-Linux-Web-Server
+│
+├── README.md
+├── TASK.md
+├── COMMANDS.md
+└── screenshots
+```
 
-### Commands Used
+---
 
-- dpkg -l | grep openssh
-- systemctl status ssh
-- systemctl enable ssh
-- ss -tlnp
-- ssh username@server-ip
+# Sprint 1 - Linux Server Setup
 
-### Outcome
+| Task ID | Task | Status |
+|----------|------|--------|
+| DEVOPS-001 | Ubuntu Server Installation | ✅ Completed |
+| DEVOPS-002 | Linux Users & Groups | ✅ Completed |
+| DEVOPS-003 | Linux Commands | ✅ Completed |
+| DEVOPS-004 | Linux File Permissions | ✅ Completed |
+| DEVOPS-005 | SSH Configuration | ✅ Completed |
+| DEVOPS-006 | Firewall Configuration (UFW) | ✅ Completed |
+| DEVOPS-007 | Nginx Installation | ✅ Completed |
+| DEVOPS-008 | Nginx Service Verification | ✅ Completed |
+| DEVOPS-009 | Custom Website Deployment | ✅ Completed |
 
-Successfully connected to the Ubuntu Server remotely using SSH from Windows.
+---
+
+# Skills Learned
+
+- Ubuntu Server Installation
+- Linux File System Navigation
+- User and Group Management
+- SSH Configuration
+- Firewall Management
+- File Permissions
+- File Ownership
+- Nginx Installation
+- Web Server Configuration
+- Static Website Deployment
+- Git & GitHub
+
+---
+
+# Result
+
+Successfully installed Ubuntu Server, configured SSH and Firewall, installed Nginx, and deployed a custom static website.
+
+---
+
+# Screenshots
+
+Project screenshots are available inside the **screenshots/** folder.
+
+---
+
+# Author
+
+**Madawa Rajapaksha**
+
+DevOps Internship Portfolio
+
+GitHub:
+https://github.com/madawaMax

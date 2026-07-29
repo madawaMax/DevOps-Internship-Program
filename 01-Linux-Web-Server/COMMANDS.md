@@ -76,4 +76,30 @@ sudo apt install -y git curl wget vim tree zip unzip htop net-tools
 
 
 
+sudo apt update
+sudo apt install nginx -y
+nginx -v
+sudo systemctl status nginx
+sudo systemctl enable nginx
+sudo systemctl is-enabled nginx
+sudo ss -tlnp | grep :80
+ip a
+
+
+
+
+cd /var/www/html
+
+ls -l
+
+sudo cp index.html index.html.backup
+
+sudo rm index.html
+
+sudo nano index.html
+
+cat index.html
+
+
+
 
