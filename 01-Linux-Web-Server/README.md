@@ -17,3 +17,22 @@ Sprint 1
 ## Status
 
 In Progress
+
+
+## SSH Configuration
+
+### Objective
+
+Configure secure remote access to the Ubuntu Server.
+
+### Commands Used
+
+- dpkg -l | grep openssh
+- systemctl status ssh
+- systemctl enable ssh
+- ss -tlnp
+- ssh username@server-ip
+
+### Outcome
+
+Successfully connected to the Ubuntu Server remotely using SSH from Windows.

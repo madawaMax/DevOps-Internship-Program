@@ -55,3 +55,14 @@ sudo apt install -y git curl wget vim tree zip unzip htop net-tools
 | `chmod +x` | Make a file executable         |
 
 
+| Command                   | Purpose                          |
+| ------------------------- | -------------------------------- |
+| `dpkg -l \| grep openssh` | Check OpenSSH packages           |
+| `systemctl status ssh`    | Check SSH service status         |
+| `systemctl enable ssh`    | Enable SSH at boot               |
+| `systemctl start ssh`     | Start SSH service                |
+| `ss -tlnp`                | Display listening ports          |
+| `ssh user@ip`             | Connect to a remote Linux server |
+
+
+
