@@ -238,7 +238,7 @@ Successfully configured an Ubuntu Server running Nginx to host multiple websites
 
 # 👨‍💻 Author
 
-**Madawa Rajapaksha**
+**Madawa Vishwajith Rajapaksha**
 
 DevOps Engineer (Learning Journey)
 
