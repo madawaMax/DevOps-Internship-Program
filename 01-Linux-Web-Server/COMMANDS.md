@@ -102,4 +102,84 @@ cat index.html
 
 
 
+# DEVOPS-010 Commands
+
+## Create Website Directories
+
+```bash
+sudo mkdir -p /var/www/company.local
+sudo mkdir -p /var/www/dev.company.local
+```
+
+## Create Configuration Files
+
+```bash
+sudo nano /etc/nginx/sites-available/company.local
+sudo nano /etc/nginx/sites-available/dev.company.local
+```
+
+## Enable Websites
+
+```bash
+sudo ln -s /etc/nginx/sites-available/company.local /etc/nginx/sites-enabled/
+
+sudo ln -s /etc/nginx/sites-available/dev.company.local /etc/nginx/sites-enabled/
+```
+
+## Test Configuration
+
+```bash
+sudo nginx -t
+```
+
+## Reload Nginx
+
+```bash
+sudo systemctl reload nginx
+```
+
+## Restart Nginx
+
+```bash
+sudo systemctl restart nginx
+```
+
+## Check Service
+
+```bash
+sudo systemctl status nginx
+```
+
+## Check Enabled Sites
+
+```bash
+ls -l /etc/nginx/sites-enabled
+```
+
+## Check Server Names
+
+```bash
+sudo nginx -T | grep server_name
+```
+
+## Check Listening Port
+
+```bash
+sudo ss -tlnp | grep :80
+```
+
+## Stop Nginx
+
+```bash
+sudo systemctl stop nginx
+```
+
+## Start Nginx
+
+```bash
+sudo systemctl start nginx
+```
+
+
+
 

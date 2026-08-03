@@ -230,3 +230,36 @@ Successfully deployed a custom HTML website using Nginx. The browser displayed t
 
 ### Status
 ✅ Completed
+
+
+# DEVOPS-010 - Task
+
+## Ticket ID
+
+DEVOPS-010
+
+## Task
+
+Configure multiple websites using Nginx Server Blocks.
+
+## Objectives
+
+- Create two websites
+- Configure Virtual Hosts
+- Create Symbolic Links
+- Test Configuration
+- Reload Nginx
+- Verify websites
+- Perform troubleshooting
+
+## Deliverables
+
+- company.local
+- dev.company.local
+- Working Nginx configuration
+- Documentation
+- Screenshots
+
+## Status
+
+Completed

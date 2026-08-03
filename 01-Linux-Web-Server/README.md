@@ -1,40 +1,42 @@
-# Project 1 - Linux Web Server
+# 🚀 Linux Web Server Administration with Nginx
 
-## Overview
+# 📖 Project Overview
 
-This project is part of my DevOps Internship Program. The objective of this project is to learn Linux server administration, system management, networking, security, and web server deployment using Ubuntu Server.
+This project is part of my **DevOps Internship Program**.
 
-The project covers the complete process from installing Ubuntu Server to deploying a custom website using Nginx.
+The objective of this project is to build a strong foundation in Linux System Administration and Web Server Management using **Ubuntu Server** and **Nginx**.
+
+Throughout this project, I completed hands-on practical tasks covering Linux administration, SSH, firewall management, Nginx configuration, Virtual Hosts (Server Blocks), and troubleshooting.
 
 ---
 
-# Project Objectives
+# 🎯 Learning Objectives
 
-- Install Ubuntu Server
-- Learn Linux Commands
+- Understand Linux Fundamentals
+- Learn Linux File System
 - Manage Users and Groups
+- Configure File Permissions
 - Configure SSH
-- Configure Firewall (UFW)
-- Understand Linux File Permissions
+- Manage UFW Firewall
 - Install and Configure Nginx
-- Deploy a Static Website
+- Host Multiple Websites using Server Blocks
+- Troubleshoot Nginx Issues
+- Document Practical DevOps Tasks
 
 ---
 
-# Technologies Used
+# 🛠 Technologies Used
 
 - Ubuntu Server 24.04 LTS
-- VirtualBox
-- Linux Terminal
-- OpenSSH
-- UFW Firewall
-- Nginx Web Server
+- Nginx
 - Git
 - GitHub
+- VirtualBox
+- Bash
 
 ---
 
-# Project Structure
+# 📂 Project Structure
 
 ```
 01-Linux-Web-Server
@@ -42,60 +44,206 @@ The project covers the complete process from installing Ubuntu Server to deployi
 ├── README.md
 ├── TASK.md
 ├── COMMANDS.md
-└── screenshots
+├── screenshots/
+├── architecture/
+└── interview-notes/
 ```
 
 ---
 
-# Sprint 1 - Linux Server Setup
+# 📚 Tickets Completed
 
-| Task ID | Task | Status |
-|----------|------|--------|
-| DEVOPS-001 | Ubuntu Server Installation | ✅ Completed |
-| DEVOPS-002 | Linux Users & Groups | ✅ Completed |
-| DEVOPS-003 | Linux Commands | ✅ Completed |
-| DEVOPS-004 | Linux File Permissions | ✅ Completed |
-| DEVOPS-005 | SSH Configuration | ✅ Completed |
-| DEVOPS-006 | Firewall Configuration (UFW) | ✅ Completed |
-| DEVOPS-007 | Nginx Installation | ✅ Completed |
-| DEVOPS-008 | Nginx Service Verification | ✅ Completed |
-| DEVOPS-009 | Custom Website Deployment | ✅ Completed |
+| Ticket | Topic | Status |
+|----------|-------------------------------|---------|
+| DEVOPS-001 | Linux Introduction | ✅ |
+| DEVOPS-002 | Linux File System | ✅ |
+| DEVOPS-003 | Linux Commands | ✅ |
+| DEVOPS-004 | Users & Groups | ✅ |
+| DEVOPS-005 | File Permissions | ✅ |
+| DEVOPS-006 | SSH Configuration | ✅ |
+| DEVOPS-007 | UFW Firewall | ✅ |
+| DEVOPS-008 | Install Nginx | ✅ |
+| DEVOPS-009 | Nginx Troubleshooting | ✅ |
+| DEVOPS-010 | Nginx Server Blocks (Virtual Hosts) | ✅ |
 
 ---
 
-# Skills Learned
+# 🚀 Practical Tasks Completed
 
-- Ubuntu Server Installation
-- Linux File System Navigation
-- User and Group Management
-- SSH Configuration
-- Firewall Management
+## Linux Administration
+
+- Linux Installation
+- User Management
+- Group Management
+- Linux Commands
+- File System Navigation
 - File Permissions
-- File Ownership
+
+---
+
+## SSH
+
+- Install OpenSSH
+- Enable SSH Service
+- Remote Login
+- Verify SSH Status
+
+---
+
+## Firewall
+
+- Install UFW
+- Allow SSH
+- Allow HTTP
+- Allow HTTPS
+- Enable Firewall
+
+---
+
+## Nginx
+
+- Install Nginx
+- Start Service
+- Stop Service
+- Restart Service
+- Reload Configuration
+- Test Configuration
+
+---
+
+## Virtual Hosts
+
+Configured two websites on a single Ubuntu Server.
+
+Website 1
+
+```
+company.local
+```
+
+Website 2
+
+```
+dev.company.local
+```
+
+Configured using
+
+- Server Blocks
+- sites-available
+- sites-enabled
+- Symbolic Links
+
+---
+
+# 🔍 Troubleshooting Performed
+
+Completed practical troubleshooting for:
+
+- Nginx Service Issues
+- Configuration Errors
+- Missing Semicolon
+- Invalid Server Block
+- Website Not Loading
+- Wrong Root Directory
+- Symbolic Link Problems
+- Default Website Issues
+- Browser Cache Issues
+- Configuration Testing
+
+Commands used
+
+```bash
+sudo nginx -t
+sudo systemctl status nginx
+sudo systemctl reload nginx
+sudo systemctl restart nginx
+sudo journalctl -u nginx
+```
+
+---
+
+# 📂 Important Directories
+
+```
+/etc/nginx/
+/etc/nginx/nginx.conf
+/etc/nginx/sites-available/
+/etc/nginx/sites-enabled/
+/var/www/
+/var/log/nginx/
+```
+
+---
+
+# 📚 Concepts Learned
+
+- Linux Administration
+- SSH
+- Firewall
+- Web Server
+- Apache vs Nginx
+- Event Driven Architecture
+- C10K Problem
+- Server Blocks
+- Virtual Hosts
+- Document Root
+- index.html
+- nginx.conf
+- sites-available
+- sites-enabled
+- Symbolic Links
+- Reverse Proxy
+- Troubleshooting
+
+---
+
+# 📸 Screenshots
+
+Project screenshots are available inside the **screenshots/** directory.
+
+Examples include
+
+- Ubuntu Installation
+- Linux Commands
+- SSH
+- Firewall
 - Nginx Installation
-- Web Server Configuration
-- Static Website Deployment
-- Git & GitHub
+- Nginx Default Page
+- company.local
+- dev.company.local
+- Server Blocks Configuration
+- Troubleshooting
 
 ---
 
-# Result
+# 💡 Skills Gained
 
-Successfully installed Ubuntu Server, configured SSH and Firewall, installed Nginx, and deployed a custom static website.
+- Linux System Administration
+- Web Server Administration
+- Nginx Configuration
+- SSH
+- Firewall Management
+- Troubleshooting
+- Git
+- GitHub Documentation
+
+
+
+# 📈 Outcome
+
+Successfully configured an Ubuntu Server running Nginx to host multiple websites using Server Blocks while applying Linux administration, security, and troubleshooting best practices.
 
 ---
 
-# Screenshots
-
-Project screenshots are available inside the **screenshots/** folder.
-
----
-
-# Author
+# 👨‍💻 Author
 
 **Madawa Rajapaksha**
 
-DevOps Internship Portfolio
+DevOps Engineer (Learning Journey)
 
 GitHub:
 https://github.com/madawaMax
+
+LinkedIn:
+https://www.linkedin.com/in/madawa-vishwajith-5a78112a7/
