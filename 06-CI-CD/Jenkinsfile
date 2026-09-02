@@ -3,32 +3,51 @@ pipeline {
 
     stages {
 
+        stage('Checkout SCM') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Build') {
             steps {
-                echo 'Building application...'
+                dir('06-CI-CD/app') {
+                    sh 'mvn clean compile'
+                }
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Running tests...'
+                dir('06-CI-CD/app') {
+                    sh 'mvn test'
+                }
             }
         }
 
-        stage('Deploy') {
+        stage('Package') {
             steps {
-                echo 'Deploying application...'
+                dir('06-CI-CD/app') {
+                    sh 'mvn package -DskipTests'
+                }
+            }
+        }
+
+        stage('Archive Artifact') {
+            steps {
+                archiveArtifacts artifacts: '06-CI-CD/app/target/*.jar',
+                                 fingerprint: true
             }
         }
     }
 
     post {
         success {
-            echo 'CI/CD Pipeline completed successfully!'
+            echo 'DEVOPS-054 Build Pipeline completed successfully!'
         }
 
         failure {
-            echo 'CI/CD Pipeline failed!'
+            echo 'DEVOPS-054 Build Pipeline failed!'
         }
     }
 }
