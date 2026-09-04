@@ -51,11 +51,11 @@ pipeline {
 
     post {
         success {
-            echo 'DEVOPS-054 Build Pipeline completed successfully!'
+            echo 'DEVOPS-055 Docker Build completed successfully!'
         }
 
         failure {
-            echo 'DEVOPS-054 Build Pipeline failed!'
+            echo 'DEVOPS-055 Build Pipeline failed!'
         }
     }
 }
