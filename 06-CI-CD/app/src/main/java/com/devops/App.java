@@ -3,7 +3,7 @@ package com.devops;
 public class App {
 
     public static String getMessage() {
-        return "DEVOPS-059 Full CI/CD Pipeline is working!!2nd try";
+        return "DEVOPS-059 Full CI/CD Pipeline is working!!3rd try";
     }
 
     public static void main(String[] args) {
