@@ -39,6 +39,14 @@ pipeline {
                                  fingerprint: true
             }
         }
+
+        stage('Docker Build') {
+    steps {
+        dir('06-CI-CD') {
+            sh 'docker build -t devops-build-app:1.0 .'
+        }
+    }
+}
     }
 
     post {
