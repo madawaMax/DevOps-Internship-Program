@@ -41,12 +41,18 @@ pipeline {
         }
 
         stage('Docker Build') {
-    steps {
-        dir('06-CI-CD') {
-            sh 'docker build -t devops-build-app:1.0 .'
+            steps {
+                dir('06-CI-CD') {
+                     sh 'docker build -t devops-build-app:1.0 .'
+                }
+             }
         }
-    }
-}
+
+        stage('Docker Run') {
+            steps {
+                sh 'docker run --rm devops-build-app:1.0'
+            }
+        }
     }
 
     post {
