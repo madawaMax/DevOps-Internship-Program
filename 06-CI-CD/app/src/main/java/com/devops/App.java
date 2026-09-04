@@ -11,7 +11,7 @@ import java.net.InetSocketAddress;
 public class App {
 
     public static String getMessage() {
-        return "DEVOPS-059 Full CI/CD Pipeline is working!!3rd try";
+        return "DEVOPS-059 Full CI/CD Pipeline is working!!5rd try";
     }
 
     public static String getHealthStatus() {

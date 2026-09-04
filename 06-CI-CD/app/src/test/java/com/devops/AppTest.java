@@ -10,7 +10,7 @@ class AppTest {
     @Test
     void testApplicationMessage() {
         assertEquals(
-                "DEVOPS-059 Full CI/CD Pipeline is working!!3rd try",
+                "DEVOPS-059 Full CI/CD Pipeline is working!!5rd try",
                 App.getMessage()
         );
     }
