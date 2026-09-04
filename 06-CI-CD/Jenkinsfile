@@ -45,11 +45,17 @@ pipeline {
              }
         }
 
-        stage('Docker Run') {
-            steps {
-                sh 'docker run --rm devops-build-app:1.0'
-            }
-        }
+       stage('Docker Run') {
+    steps {
+        sh '''
+            docker run -d --name devops-health-check -p 8081:8081 devops-build-app:1.0
+            sleep 5
+            curl -f http://localhost:8081/health
+            docker stop devops-health-check
+            docker rm devops-health-check
+        '''
+    }
+}
 
         stage('Docker Push') {
     steps {
