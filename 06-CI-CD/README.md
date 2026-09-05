@@ -1,43 +1,85 @@
-# DEVOPS-054 – Jenkins Build Pipeline
+# DEVOPS-054 – Jenkins CI/CD Pipeline & Monitoring
 
 ## 📌 Project Overview
 
- is a practical DevOps project focused on implementing a basic CI/CD pipeline using Jenkins and GitHub.
+This project is a practical DevOps project focused on implementing a CI/CD pipeline using Jenkins, GitHub, Docker, Docker Hub, and basic application monitoring.
 
-The project demonstrates how a developer's code change can automatically trigger a Jenkins pipeline through a GitHub Webhook.
+The project demonstrates how a developer's code change can automatically trigger a Jenkins pipeline through a GitHub Webhook and progress through build, test, packaging, containerization, deployment, and health-check stages.
 
-The main objective was to understand and practically implement the workflow:
+The overall workflow is:
 
-Developer → GitHub → Webhook → Jenkins → Build → Test → Deploy
+```text
+Developer
+    ↓
+GitHub Repository
+    ↓
+GitHub Webhook
+    ↓
+Cloudflare Tunnel
+    ↓
+Jenkins
+    ↓
+Maven Build
+    ↓
+Unit Test
+    ↓
+Package JAR
+    ↓
+Docker Build
+    ↓
+Docker Run
+    ↓
+Docker Hub
+    ↓
+Application
+    ↓
+Health Check
+    ↓
+Monitoring
+    ↓
+Failure Detection
+    ↓
+Troubleshooting
+    ↓
+Recovery
+    ↓
+Healthy Application
+```
 
 ---
 
-## 🎯 Objectives
-
-## 🎯 Objectives
+# 🎯 Objectives
 
 - Create a Java 21 Maven application
-- Configure Maven project structure and dependencies
-- Implement a JUnit 5 unit test
-- Verify the application build locally using Maven
-- Integrate the Maven project with Jenkins
-- Configure Jenkins Pipeline using a Jenkinsfile
+- Configure the Maven project structure and dependencies
+- Add JUnit 5 unit testing
+- Verify the Maven build locally
+- Integrate the application with Jenkins
+- Configure a Jenkins Pipeline using a `Jenkinsfile`
 - Automatically checkout source code from GitHub
 - Compile the Java application using Maven
-- Execute automated unit tests using JUnit
-- Package the application into a JAR file
+- Execute automated unit tests
+- Package the application as an executable JAR
 - Archive the generated JAR artifact in Jenkins
-- Verify the archived artifact by downloading and executing it
-- Understand the complete Jenkins build pipeline workflow
+- Download and execute the archived artifact
+- Build a Docker image
+- Run the application inside a Docker container
+- Push the Docker image to Docker Hub
+- Configure a GitHub Webhook for automatic Jenkins triggering
+- Implement an HTTP health endpoint
+- Monitor Docker container status and application logs
+- Detect application/container failure
+- Troubleshoot the failure
+- Recover the application
+- Verify the final healthy state
+
 ---
 
-## 🛠 Technologies Used
-
-## 🛠 Technologies Used
+# 🛠 Technologies Used
 
 | Technology | Purpose |
 |---|---|
-| Ubuntu Server 24.04 | Jenkins server environment |
+| Ubuntu Server 24.04 | Jenkins and Docker server environment |
 | Jenkins | CI/CD pipeline automation |
 | Git | Version control |
 | GitHub | Source code repository |
@@ -46,176 +88,709 @@ Developer → GitHub → Webhook → Jenkins → Build → Test → Deploy
 | Java 21 | Application and Jenkins runtime |
 | Apache Maven 3.9.16 | Build and dependency management |
 | JUnit 5 | Automated unit testing |
+| Docker | Application containerization |
+| Docker Hub | Container image registry |
 | Bash | Linux server command-line operations |
+| curl | HTTP health-check testing |
+
 ---
 
-## 🏗️ Architecture
-
-## 🏗 Architecture
+# 🏗️ Architecture
 
 ```text
-Developer
-    │
-    ▼
-GitHub Repository
-    │
-    │ GitHub Webhook
-    ▼
-Cloudflare Tunnel
-    │
-    ▼
-Jenkins Server
-Ubuntu Server 24.04
-192.168.8.150:8080
-    │
-    ▼
-Jenkins Pipeline
-    │
-    ├── Checkout SCM
-    │
-    ├── Maven Compile
-    │
-    ├── Unit Test (JUnit 5)
-    │
-    ├── Package JAR
-    │
-    └── Archive Artifact
-             │
-             ▼
-      devops-build-app-1.0-SNAPSHOT.jar
+                         Developer
+                             │
+                             ▼
+                     GitHub Repository
+                             │
+                      GitHub Webhook
+                             │
+                             ▼
+                    Cloudflare Tunnel
+                             │
+                             ▼
+                       Jenkins Server
+                    Ubuntu Server 24.04
+                      192.168.8.150:8080
+                             │
+                             ▼
+                    Jenkins CI/CD Pipeline
+                             │
+          ┌──────────────────┼──────────────────┐
+          │                  │                  │
+          ▼                  ▼                  ▼
+      Checkout             Build              Test
+          │                  │                  │
+          └──────────────────┼──────────────────┘
+                             ▼
+                         Package JAR
+                             │
+                             ▼
+                      Archive Artifact
+                             │
+                             ▼
+                       Docker Build
+                             │
+                             ▼
+                        Docker Run
+                             │
+                             ▼
+                        Docker Hub
+                             │
+                             ▼
+                     Running Application
+                             │
+                             ▼
+                     HTTP /health Endpoint
+                             │
+                             ▼
+                       Health Check
+                             │
+                             ▼
+                   Container Monitoring
+                             │
+                 ┌───────────┴───────────┐
+                 │                       │
+              Healthy                 Failure
+                 │                       │
+                 ▼                       ▼
+                UP                 Troubleshooting
+                                         │
+                                         ▼
+                                      Recovery
+                                         │
+                                         ▼
+                                  Final Health Check
+                                         │
+                                         ▼
+                                        UP
+```
 
-      GitHub Push
-     ↓
-GitHub Webhook
-     ↓
-Jenkins Trigger
-     ↓
-Checkout Source Code
-     ↓
-Maven Compile
-     ↓
-JUnit Tests
-     ↓
-Package JAR
-     ↓
-Archive Artifact
-     ↓
-Build SUCCESS
+---
 
-
-
-
-
-
-
-
-## 📁 Project Structure
+# 📁 Project Structure
 
 ```text
 06-CI-CD/
+│
 ├── README.md
 ├── TASK.md
 ├── COMMANDS.md
 ├── Jenkinsfile
+├── Dockerfile
+│
+├── screenshots/
+│   ├── docker-container-running.png
+│   ├── failure-detection.png
+│   ├── docker-container-recovery.png
+│   ├── health-check-success.png
+│   ├── github-webhook-success.png
+│   └── jenkins-build-success.png
+│
 └── app/
     ├── pom.xml
+    │
     └── src/
         ├── main/
         │   └── java/
         │       └── com/
         │           └── devops/
         │               └── App.java
+        │
         └── test/
             └── java/
                 └── com/
                     └── devops/
                         └── AppTest.java
+```
 
+---
 
-                        ## ⚙️ Pipeline Stages
+# 🔄 CI/CD Pipeline
+
+The Jenkins pipeline is implemented using a `Jenkinsfile`.
+
+## Pipeline Stages
 
 | Stage | Description |
 |---|---|
-| Checkout SCM | Checks out the latest source code from the GitHub repository |
-| Build | Compiles the Java 21 application using Maven |
-| Test | Runs automated unit tests using JUnit 5 |
-| Package | Packages the application into an executable JAR file |
-| Archive Artifact | Stores the generated JAR file as a Jenkins build artifact |
+| Checkout SCM | Checks out the latest source code from GitHub |
+| Build | Compiles the Java application using Maven |
+| Test | Runs automated JUnit 5 tests |
+| Package | Creates the executable JAR file |
+| Archive Artifact | Stores the generated JAR in Jenkins |
+| Docker Build | Builds the Docker image |
+| Docker Run | Runs the application container |
+| Docker Push | Pushes the image to Docker Hub |
+| Post Actions | Displays the final pipeline result |
 
-### Jenkins Pipeline
+## Pipeline Flow
 
 ```text
 Checkout SCM
-     ↓
+      ↓
 Maven Compile
-     ↓
+      ↓
 JUnit 5 Tests
-     ↓
+      ↓
 Package JAR
-     ↓
+      ↓
 Archive Artifact
-     ↓
+      ↓
+Docker Build
+      ↓
+Docker Run
+      ↓
+Docker Push
+      ↓
 BUILD SUCCESS
+```
 
+---
 
+# 🔗 GitHub Webhook
 
+A GitHub Webhook was configured to automatically notify Jenkins when a push is made to the repository.
 
-
-
-## ✅ Build Verification
-
-The Jenkins pipeline was successfully executed and completed with a **SUCCESS** status.
-
-### Build Results
-
-- Jenkins Build: `#4`
-- Maven Build: `BUILD SUCCESS`
-- Unit Tests: `1 test passed`
-- Failures: `0`
-- Errors: `0`
-- JAR Artifact: Successfully generated
-- Artifact: `devops-build-app-1.0-SNAPSHOT.jar`
-- Jenkins Artifact Archive: Successful
-- Artifact Download: Successful
-- JAR Execution: Successful
-
-### Application Output
-
-The archived JAR file was downloaded from Jenkins and executed locally using Java 21.
+The webhook sends a `push` event to Jenkins through the Cloudflare Tunnel.
 
 ```text
-DEVOPS-054 Build Pipeline is working!
+Git Push
+   ↓
+GitHub
+   ↓
+Webhook
+   ↓
+Cloudflare Tunnel
+   ↓
+Jenkins
+   ↓
+Automatic Build
+```
 
+The GitHub webhook delivery was successfully received with an HTTP `200` response.
 
+### Screenshot
 
+![GitHub Webhook Success](screenshots/github-webhook-success.png)
 
+---
 
+# ☁️ Cloudflare Tunnel
 
+A Cloudflare Quick Tunnel was used to provide temporary public access to the Jenkins webhook endpoint.
 
-## 📜 Jenkinsfile
+Example command:
 
-The Jenkins pipeline is defined as code using a `Jenkinsfile`.
+```bash
+cloudflared tunnel --url http://localhost:8080
+```
 
-The pipeline contains the following stages:
+The generated public URL was configured in the GitHub repository webhook settings.
+
+> Note: Cloudflare Quick Tunnels are temporary. The generated URL can change when a new tunnel is created.
+
+---
+
+# ☕ Java Application
+
+The application is a simple Java 21 application.
+
+The main application class is:
 
 ```text
-Checkout SCM
-    ↓
-Build
-    ↓
-Test
-    ↓
-Package
-    ↓
-Archive Artifact
+app/src/main/java/com/devops/App.java
+```
 
-## DEVOPS-060 - Monitoring & Health Check
+The application exposes its message through the application logic and provides the health endpoint when running as the containerized service.
 
-- Application health check implemented
-- HTTP health endpoint configured
-- Application running status verified
-- Docker container status and logs checked
-- Basic monitoring configured
-- Application failure detection tested
-- Failure troubleshooting performed
-- Health-check result verified
+---
+
+# 🧪 Unit Testing
+
+JUnit 5 is used for automated unit testing.
+
+Test class:
+
+```text
+app/src/test/java/com/devops/AppTest.java
+```
+
+The test verifies that the application message returned by `App.getMessage()` matches the expected value.
+
+Example command:
+
+```bash
+mvn test
+```
+
+Expected result:
+
+```text
+Tests run: 1
+Failures: 0
+Errors: 0
+```
+
+---
+
+# 📦 Maven Build
+
+The Maven project uses Java 21.
+
+The Maven project configuration is stored in:
+
+```text
+app/pom.xml
+```
+
+Local build verification:
+
+```bash
+mvn clean package
+```
+
+Expected result:
+
+```text
+BUILD SUCCESS
+```
+
+> Maven commands must be executed from the directory containing `pom.xml`.
+
+For this project:
+
+```text
+06-CI-CD/app/
+```
+
+---
+
+# 🐳 Docker
+
+The application was containerized using Docker.
+
+## Docker Image
+
+The application Docker image was built successfully.
+
+Example image:
+
+```text
+devops-build-app:1.0
+```
+
+The image was also tagged for Docker Hub:
+
+```text
+madawamax/devops-build-app:1.0
+```
+
+## Docker Build
+
+The Jenkins pipeline performs the Docker build automatically.
+
+```text
+Dockerfile
+    ↓
+Docker Build
+    ↓
+devops-build-app:1.0
+```
+
+---
+
+# 🚀 Docker Run
+
+The application was started inside the following Docker container:
+
+```text
+devops-health-check
+```
+
+The application listens on port `8081`.
+
+Port mapping:
+
+```text
+Host: 8081
+Container: 8081
+```
+
+Example:
+
+```text
+0.0.0.0:8081 → 8081/tcp
+```
+
+---
+
+# ❤️ DEVOPS-060 – Monitoring & Health Check
+
+## 🎯 Task Objective
+
+Implement a basic monitoring and health-check mechanism to determine whether the application is healthy or unhealthy.
+
+---
+
+## Health Endpoint
+
+The application exposes the following HTTP endpoint:
+
+```text
+http://localhost:8081/health
+```
+
+The endpoint returns:
+
+```text
+HTTP/1.1 200 OK
+
+UP
+```
+
+This confirms that the application is healthy and responding correctly.
+
+### Screenshot
+
+![Health Check Success](screenshots/health-check-success.png)
+
+---
+
+## 🐳 Docker Container Monitoring
+
+The application was executed inside the Docker container:
+
+```text
+devops-health-check
+```
+
+The container status was verified using Docker commands.
+
+Command:
+
+```bash
+sudo docker ps
+```
+
+Expected healthy state:
+
+```text
+Up
+```
+
+Example:
+
+```text
+devops-health-check
+Up
+0.0.0.0:8081->8081/tcp
+```
+
+### Screenshot
+
+![Docker Container Running](screenshots/docker-container-running.png)
+
+---
+
+## 📋 Docker Logs
+
+Application logs were checked using:
+
+```bash
+sudo docker logs devops-health-check
+```
+
+The application produced:
+
+```text
+Application started on port 8081
+Health endpoint: http://localhost:8081/health
+```
+
+This confirmed that the application started successfully.
+
+---
+
+## 🔍 Health Check Verification
+
+The health endpoint was tested using:
+
+```bash
+curl -i http://localhost:8081/health
+```
+
+Successful result:
+
+```text
+HTTP/1.1 200 OK
+Content-type: text/plain
+
+UP
+```
+
+This confirms:
+
+- HTTP request reached the application
+- Application responded successfully
+- Health endpoint is available
+- Application health status is `UP`
+
+---
+
+# 🚨 Failure Detection Test
+
+To verify failure detection, the Docker container was intentionally stopped.
+
+Command:
+
+```bash
+sudo docker stop devops-health-check
+```
+
+The container state was then checked:
+
+```bash
+sudo docker inspect --format='{{.State.Status}}' devops-health-check
+```
+
+Result:
+
+```text
+exited
+```
+
+The health endpoint was tested again:
+
+```bash
+curl -i http://localhost:8081/health
+```
+
+Failure result:
+
+```text
+curl: (7) Failed to connect to localhost port 8081
+```
+
+This confirmed that the application was unavailable after the container was stopped.
+
+### Screenshot
+
+![Failure Detection](screenshots/failure-detection.png)
+
+---
+
+# 🛠️ Troubleshooting & Recovery
+
+After detecting the failure, the container was restarted.
+
+```bash
+sudo docker start devops-health-check
+```
+
+The container status was verified:
+
+```bash
+sudo docker inspect --format='{{.State.Status}}' devops-health-check
+```
+
+Expected result:
+
+```text
+running
+```
+
+### Screenshot
+
+![Docker Container Recovery](screenshots/docker-container-recovery.png)
+
+---
+
+## Final Health Check
+
+The health endpoint was tested again:
+
+```bash
+curl -i http://localhost:8081/health
+```
+
+Final result:
+
+```text
+HTTP/1.1 200 OK
+Content-type: text/plain
+
+UP
+```
+
+Application health status:
+
+```text
+UP
+```
+
+This confirms that the application was successfully recovered.
+
+---
+
+# 📊 Monitoring Flow
+
+```text
+Application
+     ↓
+HTTP /health Endpoint
+     ↓
+Health Check
+     ↓
+Docker Container Monitoring
+     ↓
+Failure Detection
+     ↓
+Troubleshooting
+     ↓
+Container Recovery
+     ↓
+Health Check
+     ↓
+Healthy / UP
+```
+
+---
+
+# 📸 Screenshots
+
+The important implementation evidence is stored in the `screenshots/` directory.
+
+## Docker Container Running
+
+![Docker Container Running](screenshots/docker-container-running.png)
+
+Shows the `devops-health-check` container running and port `8081` mapped.
+
+## Failure Detection
+
+![Failure Detection](screenshots/failure-detection.png)
+
+Shows the container being stopped, the container state becoming `exited`, and the health check failing.
+
+## Container Recovery
+
+![Container Recovery](screenshots/docker-container-recovery.png)
+
+Shows the container being started again and returning to the `running` state.
+
+## Health Check
+
+![Health Check](screenshots/health-check-success.png)
+
+Shows the successful HTTP health check returning `200 OK` and `UP`.
+
+## GitHub Webhook
+
+![GitHub Webhook](screenshots/github-webhook-success.png)
+
+Shows a successful GitHub webhook delivery with HTTP `200`.
+
+## Jenkins Pipeline
+
+![Jenkins Pipeline](screenshots/jenkins-build-success.png)
+
+Shows the Jenkins pipeline stages completing successfully.
+
+---
+
+# 📊 Final Project Verification
+
+| Component | Result |
+|---|---|
+| Java 21 Application | ✅ PASS |
+| Maven Configuration | ✅ PASS |
+| Maven Build | ✅ PASS |
+| JUnit 5 Tests | ✅ PASS |
+| JAR Packaging | ✅ PASS |
+| Jenkins Pipeline | ✅ PASS |
+| GitHub Checkout | ✅ PASS |
+| Docker Build | ✅ PASS |
+| Docker Run | ✅ PASS |
+| Docker Hub Push | ✅ PASS |
+| GitHub Webhook | ✅ PASS |
+| Automatic Jenkins Trigger | ✅ PASS |
+| Health Endpoint | ✅ PASS |
+| Docker Status Monitoring | ✅ PASS |
+| Docker Logs | ✅ PASS |
+| Failure Detection | ✅ PASS |
+| Troubleshooting | ✅ PASS |
+| Application Recovery | ✅ PASS |
+| Final Health Check | ✅ PASS |
+
+---
+
+# 🏁 Final Result
+
+The project successfully demonstrates a complete CI/CD and basic monitoring workflow:
+
+```text
+Developer
+    ↓
+GitHub
+    ↓
+Webhook
+    ↓
+Cloudflare Tunnel
+    ↓
+Jenkins
+    ↓
+Maven Build
+    ↓
+Unit Test
+    ↓
+JAR Packaging
+    ↓
+Docker Build
+    ↓
+Docker Run
+    ↓
+Docker Hub
+    ↓
+Application
+    ↓
+Health Check
+    ↓
+Monitoring
+    ↓
+Failure Detection
+    ↓
+Troubleshooting
+    ↓
+Recovery
+    ↓
+Healthy Application ✅
+```
+
+## Project Status
+
+**COMPLETED ✅**
+
+---
+
+# 📚 Key DevOps Concepts Learned
+
+Through this project, the following practical DevOps concepts were implemented:
+
+- Continuous Integration
+- Continuous Delivery fundamentals
+- Jenkins Pipeline as Code
+- GitHub Webhooks
+- Automated build triggering
+- Maven build automation
+- Automated unit testing
+- JAR artifact management
+- Docker image creation
+- Docker container execution
+- Docker Hub image publishing
+- Application health checks
+- Container monitoring
+- Failure detection
+- Troubleshooting
+- Application recovery
+- Basic production-style monitoring workflow
