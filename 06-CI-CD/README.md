@@ -208,3 +208,14 @@ Test
 Package
     ↓
 Archive Artifact
+
+## DEVOPS-060 - Monitoring & Health Check
+
+- Application health check implemented
+- HTTP health endpoint configured
+- Application running status verified
+- Docker container status and logs checked
+- Basic monitoring configured
+- Application failure detection tested
+- Failure troubleshooting performed
+- Health-check result verified
