@@ -576,7 +576,7 @@ This confirmed that the application was unavailable after the container was stop
 
 ### Screenshot
 
-![Failure Detection](screenshots/failure-detection.png)
+![Failure Detection](screenshots/failuredetection.png)
 
 ---
 
@@ -602,7 +602,7 @@ running
 
 ### Screenshot
 
-![Docker Container Recovery](screenshots/docker-container-recovery.png)
+![Docker Container Recovery](screenshots/dockercontainer.png)
 
 ---
 
@@ -657,45 +657,85 @@ Healthy / UP
 
 ---
 
-# 📸 Screenshots
+## 📸 Screenshots
 
-The important implementation evidence is stored in the `screenshots/` directory.
+### 1. Jenkins Pipeline Overview
 
-## Docker Container Running
+The complete Jenkins CI/CD pipeline was executed successfully, including Checkout SCM, Build, Test, Package, Archive Artifact, Docker Build, Docker Run, and Docker Push stages.
 
-![Docker Container Running](screenshots/docker-container-running.png)
+![Jenkins Pipeline Overview](screenshots/pipelineOverView.png)
 
-Shows the `devops-health-check` container running and port `8081` mapped.
+---
 
-## Failure Detection
+### 2. GitHub Webhook
 
-![Failure Detection](screenshots/failure-detection.png)
+GitHub Webhook was configured to automatically trigger the Jenkins pipeline when changes were pushed to the repository.
 
-Shows the container being stopped, the container state becoming `exited`, and the health check failing.
+![GitHub Webhook](screenshots/githubwebhook.png)
 
-## Container Recovery
+---
 
-![Container Recovery](screenshots/docker-container-recovery.png)
+### 3. Jenkins Build
 
-Shows the container being started again and returning to the `running` state.
+The Jenkins build was successfully triggered through the GitHub Webhook.
 
-## Health Check
+![Jenkins Build](screenshots/jen7.png)
 
-![Health Check](screenshots/health-check-success.png)
+---
 
-Shows the successful HTTP health check returning `200 OK` and `UP`.
+### 4. Jenkins Pipeline Stages
 
-## GitHub Webhook
+The Jenkins pipeline stages completed successfully.
 
-![GitHub Webhook](screenshots/github-webhook-success.png)
+![Jenkins Pipeline Stages](screenshots/jen8.png)
 
-Shows a successful GitHub webhook delivery with HTTP `200`.
+---
 
-## Jenkins Pipeline
+### 5. Jenkins Docker Build
 
-![Jenkins Pipeline](screenshots/jenkins-build-success.png)
+The Docker Build stage completed successfully.
 
-Shows the Jenkins pipeline stages completing successfully.
+![Jenkins Docker Build](screenshots/jen9.png)
+
+---
+
+### 6. Jenkins Docker Run
+
+The Docker Run stage completed successfully and the application container was started.
+
+![Jenkins Docker Run](screenshots/jen10.png)
+
+---
+
+### 7. Jenkins Docker Push
+
+The Docker image was successfully pushed to Docker Hub.
+
+![Jenkins Docker Push](screenshots/jen11.png)
+
+---
+
+### 8. Docker Container Status
+
+The application container `devops-health-check` was running and port `8081` was mapped successfully.
+
+![Docker Container Status](screenshots/dockercontainer.png)
+
+---
+
+### 9. Health Check
+
+The `/health` endpoint returned `HTTP/1.1 200 OK` and `UP`, confirming that the application was healthy.
+
+![Health Check](screenshots/helthcheak.png)
+
+---
+
+### 10. Failure Detection and Recovery
+
+The application failure was intentionally tested by stopping the Docker container. The health check failed, after which the container was restarted and the application recovered successfully.
+
+![Failure Detection](screenshots/failuredetection.png)
 
 ---
 
