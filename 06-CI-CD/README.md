@@ -1,6 +1,6 @@
 # DEVOPS-054 – Jenkins CI/CD Pipeline & Monitoring
 
-## 📌 Project Overview
+##  Project Overview
 
 This project is a practical DevOps project focused on implementing a CI/CD pipeline using Jenkins, GitHub, Docker, Docker Hub, and basic application monitoring.
 
@@ -48,7 +48,7 @@ Healthy Application
 
 ---
 
-# 🎯 Objectives
+#  Objectives
 
 - Create a Java 21 Maven application
 - Configure the Maven project structure and dependencies
@@ -95,7 +95,7 @@ Healthy Application
 
 ---
 
-# 🏗️ Architecture
+#  Architecture
 
 ```text
                          Developer
@@ -168,7 +168,7 @@ Healthy Application
 
 ---
 
-# 📁 Project Structure
+#  Project Structure
 
 ```text
 06-CI-CD/
@@ -206,7 +206,7 @@ Healthy Application
 
 ---
 
-# 🔄 CI/CD Pipeline
+#  CI/CD Pipeline
 
 The Jenkins pipeline is implemented using a `Jenkinsfile`.
 
@@ -306,7 +306,7 @@ The application exposes its message through the application logic and provides t
 
 ---
 
-# 🧪 Unit Testing
+#  Unit Testing
 
 JUnit 5 is used for automated unit testing.
 
@@ -334,7 +334,7 @@ Errors: 0
 
 ---
 
-# 📦 Maven Build
+#  Maven Build
 
 The Maven project uses Java 21.
 
@@ -400,7 +400,7 @@ devops-build-app:1.0
 
 ---
 
-# 🚀 Docker Run
+#  Docker Run
 
 The application was started inside the following Docker container:
 
@@ -425,9 +425,9 @@ Example:
 
 ---
 
-# ❤️ DEVOPS-060 – Monitoring & Health Check
+#  DEVOPS-060 – Monitoring & Health Check
 
-## 🎯 Task Objective
+##  Task Objective
 
 Implement a basic monitoring and health-check mechanism to determine whether the application is healthy or unhealthy.
 
@@ -493,7 +493,7 @@ Up
 
 ---
 
-## 📋 Docker Logs
+##  Docker Logs
 
 Application logs were checked using:
 
@@ -512,7 +512,7 @@ This confirmed that the application started successfully.
 
 ---
 
-## 🔍 Health Check Verification
+##  Health Check Verification
 
 The health endpoint was tested using:
 
@@ -538,7 +538,7 @@ This confirms:
 
 ---
 
-# 🚨 Failure Detection Test
+#  Failure Detection Test
 
 To verify failure detection, the Docker container was intentionally stopped.
 
@@ -580,7 +580,7 @@ This confirmed that the application was unavailable after the container was stop
 
 ---
 
-# 🛠️ Troubleshooting & Recovery
+#  Troubleshooting & Recovery
 
 After detecting the failure, the container was restarted.
 
@@ -633,7 +633,7 @@ This confirms that the application was successfully recovered.
 
 ---
 
-# 📊 Monitoring Flow
+#  Monitoring Flow
 
 ```text
 Application
@@ -657,7 +657,7 @@ Healthy / UP
 
 ---
 
-## 📸 Screenshots
+##  Screenshots
 
 ### 1. Jenkins Pipeline Overview
 
@@ -737,33 +737,6 @@ The application failure was intentionally tested by stopping the Docker containe
 
 ![Failure Detection](screenshots/failuredetection.png)
 
----
-
-# 📊 Final Project Verification
-
-| Component | Result |
-|---|---|
-| Java 21 Application | ✅ PASS |
-| Maven Configuration | ✅ PASS |
-| Maven Build | ✅ PASS |
-| JUnit 5 Tests | ✅ PASS |
-| JAR Packaging | ✅ PASS |
-| Jenkins Pipeline | ✅ PASS |
-| GitHub Checkout | ✅ PASS |
-| Docker Build | ✅ PASS |
-| Docker Run | ✅ PASS |
-| Docker Hub Push | ✅ PASS |
-| GitHub Webhook | ✅ PASS |
-| Automatic Jenkins Trigger | ✅ PASS |
-| Health Endpoint | ✅ PASS |
-| Docker Status Monitoring | ✅ PASS |
-| Docker Logs | ✅ PASS |
-| Failure Detection | ✅ PASS |
-| Troubleshooting | ✅ PASS |
-| Application Recovery | ✅ PASS |
-| Final Health Check | ✅ PASS |
-
----
 
 # 🏁 Final Result
 
@@ -804,16 +777,16 @@ Troubleshooting
     ↓
 Recovery
     ↓
-Healthy Application ✅
+Healthy Application 
 ```
 
 ## Project Status
 
-**COMPLETED ✅**
+**COMPLETED**
 
 ---
 
-# 📚 Key DevOps Concepts Learned
+#  Key DevOps Concepts Learned
 
 Through this project, the following practical DevOps concepts were implemented:
 
