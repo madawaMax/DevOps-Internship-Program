@@ -2,7 +2,7 @@
 
 ## Task Objective
 
-Implement a professional Git workflow for enterprise DevOps projects.
+Implement a professional Git and GitHub workflow for DevOps development.
 
 ## Technologies
 
