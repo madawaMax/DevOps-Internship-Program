@@ -2,7 +2,7 @@
 
 ## Task Objective
 
-Implement a professional source-control workflow using Git and GitHub.
+Implement a professional Git workflow for enterprise DevOps projects.
 
 ## Technologies
 
