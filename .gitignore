@@ -4,3 +4,5 @@ target/
 .idea/
 .vscode/
 *.tmp
+node_modules/
+npm-debug.log*
