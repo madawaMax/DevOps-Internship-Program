@@ -28,3 +28,7 @@ jobs:
       - name: Run tests
         working-directory: 08-Express-API-GitHub-Actions
         run: npm test
+
+      - name: Build Docker image
+        working-directory: 08-Express-API-GitHub-Actions
+        run: docker build -t express-api:ci .
